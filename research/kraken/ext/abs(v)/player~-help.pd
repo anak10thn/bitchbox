@@ -1,0 +1,9 @@
+#N canvas 3 55 1351 686 10;
+#X obj 145 80 player~;
+#X obj 98 13 playsample~;
+#X obj 98 324 dac~;
+#X connect 0 0 2 0;
+#X connect 0 0 2 1;
+#X connect 1 0 0 0;
+#X connect 1 0 2 0;
+#X connect 1 0 2 1;

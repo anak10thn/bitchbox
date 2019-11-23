@@ -1,0 +1,4 @@
+#N canvas 0 54 1440 818 10;
+#X obj 107 143 cnv 15 126 18 empty tuner-canvas [-] 0 4 9 0 12 -1 -66577
+0;
+#X msg 113 32 color 0 16 17;

@@ -1,0 +1,8 @@
+#N canvas 0 54 1440 818 10;
+#X obj 85 94 zexy-limiter(compressor)~;
+#X obj 84 30 adc~;
+#X obj 85 190 dac~;
+#X connect 0 0 2 0;
+#X connect 0 1 2 1;
+#X connect 1 0 0 0;
+#X connect 1 0 0 1;

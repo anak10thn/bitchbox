@@ -1,0 +1,8 @@
+#N canvas 0 54 1366 686 10;
+#X obj 4 8 adc~;
+#X obj 4 28 tuner-plugin;
+#X obj 131 4 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+;
+#X connect 0 0 1 0;
+#X connect 0 1 1 0;
+#X connect 2 0 1 1;

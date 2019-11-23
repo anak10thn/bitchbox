@@ -1,0 +1,27 @@
+#N canvas 3 54 1425 818 10;
+#X obj 55 31 inlet;
+#X obj 51 446 outlet;
+#X symbolatom 144 106 42 0 0 0 - - -, f 42;
+#X symbolatom 198 370 10 0 0 0 - - -, f 10;
+#X floatatom 106 106 5 0 0 0 - - -, f 5;
+#X obj 198 341 ../list-abs/list-idx;
+#X obj 55 191 t f b f;
+#X obj 52 385 pack f s;
+#X msg 52 407 \$1 \$2;
+#X msg 83 234 00-raw 01-chorus(s) 02-compressor(d) 03-delay(3-tap)
+04-delay(fb)(d) 05-delay(spectr) 06-distortion(d) 07-filter(s) 08-flanger(s)
+09-fuzz 10-looper(fw-bw)(v) 11-octve_hrmnzr(p) 12-overdrive 13-phaser
+14-pitchshifter(d) 15-reverb(pure)(d) 16-step-vibrato(g) 17-tremolo(d)
+18-vcf(d) 19-vibrato(d) 20-wah-wah(g);
+#X connect 0 0 4 0;
+#X connect 3 0 7 1;
+#X connect 3 0 2 0;
+#X connect 4 0 6 0;
+#X connect 5 0 3 0;
+#X connect 6 0 7 0;
+#X connect 6 1 9 0;
+#X connect 6 2 5 1;
+#X connect 7 0 8 0;
+#X connect 8 0 1 0;
+#X connect 9 0 5 0;
+#X coords 0 -1 1 1 300 32 2 100 100;

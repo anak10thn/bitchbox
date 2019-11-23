@@ -1,0 +1,33 @@
+#N canvas 3 54 1351 686 10;
+#X obj 18 -311 adc~;
+#X obj 89 -284 tgl 60 0 empty empty adc~|smp 2 7 0 12 -262144 -1 -1
+0 1;
+#X obj 89 -204 ext/abs(v)/playsample~;
+#X obj 90 -320 r toADCSMP;
+#X obj 17 -136 ext/abs(v)/abs_bypass(s)~;
+#X text 28 -279 just for \; this one \;;
+#X obj 54 69 ../playsample~;
+#X obj 345 46 tgl 96 0 empty empty SUS 17 7 0 10 -262144 -1 -1 0 1
+;
+#X msg 379 209 0 1;
+#X msg 345 209 1 1;
+#X obj 345 181 sel 0 1;
+#X obj 346 156 t f f f;
+#X obj 216 245 sustain(inf)(v);
+#X obj 54 441 dac~;
+#X connect 0 0 4 0;
+#X connect 0 1 4 0;
+#X connect 1 0 2 0;
+#X connect 1 0 4 2;
+#X connect 2 0 4 1;
+#X connect 3 0 1 0;
+#X connect 6 0 12 0;
+#X connect 6 0 13 0;
+#X connect 7 0 11 0;
+#X connect 8 0 12 1;
+#X connect 9 0 12 1;
+#X connect 10 0 9 0;
+#X connect 10 1 8 0;
+#X connect 11 0 10 0;
+#X connect 11 1 12 2;
+#X connect 12 0 13 0;

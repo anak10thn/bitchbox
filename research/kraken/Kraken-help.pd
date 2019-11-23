@@ -1,0 +1,131 @@
+#N canvas 3 54 1351 708 10;
+#X obj 1 1 cnv 15 829 379 empty metabkgrnd empty 20 12 0 14 -1 -1 0
+;
+#X obj 3 233 cnv 15 820 64 empty SLOT2EFFNAME 00-raw 170 32 0 24 -258049
+-262144 0;
+#X obj 3 304 cnv 15 820 64 empty SLOT3EFFNAME 00-raw 170 32 0 24 -258049
+-262144 0;
+#X obj 2 162 cnv 15 820 64 empty SLOT1EFFNAME 01-chorus 170 32 0 24
+-260097 -262144 0;
+#X obj 853 145 Kraken;
+#X obj 6 177 tof/menubutton 167 32 seleff1 a-1 1 #000000 #ffffff #ff0000
+#000000 -1 \, 00-raw \, 01-chorus(s) \, 02-compressor \, 03-delay(3-tap)
+\, 04-delay(fb) \, 05-delay(spectr) \, 06-distortion \, 07-filter \,
+08-flanger \, 09-fuzz \, 10-looper(fw-bw) \, 11-octve_hrmnzr \, 12-overdrive
+\, 13-phaser \, 14-pitchshifter \, 15-reverb \, 16-step-vibrato \,
+17-tremolo \, 18-vcf \, 19-vibrato \, 20-wah-wah;
+#X obj 6 245 tof/menubutton 167 32 seleff2 a-2 1 #000000 #ffffff #ff0000
+#000000 -1 \, 00-raw \, 01-chorus(s) \, 02-compressor \, 03-delay(3-tap)
+\, 04-delay(fb) \, 05-delay(spectr) \, 06-distortion \, 07-filter \,
+08-flanger \, 09-fuzz \, 10-looper(fw-bw) \, 11-octve_hrmnzr \, 12-overdrive
+\, 13-phaser \, 14-pitchshifter \, 15-reverb \, 16-step-vibrato \,
+17-tremolo \, 18-vcf \, 19-vibrato \, 20-wah-wah;
+#X obj 4 321 tof/menubutton 167 32 seleff3 a-3 1 #000000 #ffffff #ff0000
+#000000 -1 \, 00-raw \, 01-chorus(s) \, 02-compressor \, 03-delay(3-tap)
+\, 04-delay(fb) \, 05-delay(spectr) \, 06-distortion \, 07-filter \,
+08-flanger \, 09-fuzz \, 10-looper(fw-bw) \, 11-octve_hrmnzr \, 12-overdrive
+\, 13-phaser \, 14-pitchshifter \, 15-reverb \, 16-step-vibrato \,
+17-tremolo \, 18-vcf \, 19-vibrato \, 20-wah-wah;
+#X obj 295 27 vsl 26 128 0 1 0 0 rt a9 RAT 0 28 0 14 -262144 -1 -1
+12323 1;
+#X obj 469 26 vsl 96 128 0 1 0 0 mst a12 MASTER 0 -9 0 10 -261234 -1
+-262144 12600 1;
+#X obj 394 90 tgl 67 0 revoffon d4 REV:OFF|ON 2 7 0 10 -262144 -1 -1
+0 1;
+#X obj 394 21 tgl 67 0 cleandirty d5 CLEAN|DIRTY 2 7 0 10 -262144 -1
+-1 0 1;
+#X obj 40 27 vsl 26 128 0 1 0 0 md a2 MD 0 28 0 14 -262144 -1 -1 7016
+1;
+#X obj 6 26 vsl 26 128 0 1 0 0 lo a1 LO 0 28 0 14 -262144 -1 -1 11647
+1;
+#X obj 107 27 vsl 36 128 0 1 0 0 pre a4 PRE 0 28 0 14 -262130 -1 -1
+7200 1;
+#X obj 73 27 vsl 26 128 0 1 0 0 hi a3 HI 0 28 0 14 -262144 -1 -1 11801
+1;
+#X obj 191 27 vsl 26 128 0 1 0 0 rs a6 RMSZ 0 28 0 14 -262144 -1 -1
+11063 1;
+#X obj 727 237 tgl 48 0 ard-slot2-by d7 by 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj 727 306 tgl 48 0 ard-slot3-by d8 by 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj 727 171 tgl 48 0 ard-slot1-by d6 by 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj 739 5 hradio 42 1 0 2 empty empty DSP 2 18 0 21 -258113 -262144
+-1 1;
+#X obj 852 49 sel 0 1;
+#X msg 852 74 \; pd dsp 0 \;;
+#X msg 921 74 \; pd dsp 1 \;;
+#X obj 781 236 tgl 36 0 sus2 d2 SUS2 0 7 0 10 -262144 -1 -1 0 1;
+#X obj 403 168 mknob 56 100 0 1 0 0 s1p1 a13 frq 12 28 0 18 -262144
+-1 -1 7333 1;
+#X obj 403 304 mknob 56 100 0 1 0 0 s3p1 a21 gan 12 28 0 18 -262144
+-1 -1 4700 1;
+#X obj 403 236 mknob 56 100 0 1 0 0 s2p1 a17 gan 12 28 0 18 -262144
+-1 -1 5211 1;
+#X obj 465 168 mknob 56 100 0 1 0 0 s1p2 a14 del 12 28 0 18 -262144
+-1 -1 6751 1;
+#X obj 465 304 mknob 56 100 0 1 0 0 s3p2 a22 na- 12 28 0 18 -262144
+-1 -1 7195 1;
+#X obj 465 236 mknob 56 100 0 1 0 0 s2p2 a18 na- 12 28 0 18 -262144
+-1 -1 6046 1;
+#X obj 527 168 mknob 56 100 0 1 0 0 s1p3 a15 dpt 12 28 0 18 -262144
+-1 -1 5534 1;
+#X obj 527 304 mknob 56 100 0 1 0 0 s3p3 a23 na- 12 28 0 18 -262144
+-1 -1 5408 1;
+#X obj 527 236 mknob 56 100 0 1 0 0 s2p3 a19 na- 12 28 0 18 -262144
+-1 -1 5785 1;
+#X obj 592 312 hsl 128 42 0 1 0 0 drywet3 a24 D<->W 10 21 0 18 -262144
+-1 -1 12700 1;
+#X obj 590 171 hsl 128 42 0 1 0 0 drywet1 a16 D<->W 10 21 0 18 -262144
+-1 -1 12700 1;
+#X obj 592 246 hsl 128 42 0 1 0 0 drywet2 a20 D<->W 10 21 0 18 -262144
+-1 -1 12700 1;
+#X obj 263 27 vsl 26 128 0 1 0 0 lm a8 LIM 0 28 0 14 -262144 -1 -1
+12446 1;
+#X obj 233 27 vsl 26 128 0 1 0 0 th a7 THR 0 28 0 14 -262144 -1 -1
+12125 1;
+#X obj 358 27 vsl 26 128 0 1 0 0 re a11 REL 0 28 0 14 -262144 -1 -1
+6300 1;
+#X obj 327 27 vsl 26 128 0 1 0 0 at a10 ATT 0 28 0 14 -262144 -1 -1
+12609 1;
+#X obj 157 27 vsl 26 128 0 1 0 0 br a5 BRG 0 28 0 14 -262144 -1 -1
+7409 1;
+#X obj 853 117 ext/abs(v)/INIT;
+#X obj 784 56 tgl 42 0 toADCSMP empty a|s 0 7 0 21 -262144 -1 -1 1
+1;
+#X obj 779 306 tgl 36 0 sus3 d3 SUS3 0 7 0 10 -262144 -1 -1 0 1;
+#X obj 779 172 tgl 36 0 sus1 d1 SUS1 0 7 0 10 -262144 -1 -1 0 1;
+#X obj 571 26 vu 30 120 meterSdB empty -1 -8 0 10 -66577 -1 0 0;
+#X obj 233 3 cnv 15 155 18 empty empty COMPRESSOR 2 9 0 14 -233017
+-66577 0;
+#X obj 6 3 cnv 15 140 18 empty empty EQ 2 9 0 14 -233017 -66577 0;
+#X obj 157 3 cnv 15 60 18 empty empty REVERB 2 9 0 14 -233017 -66577
+0;
+#N canvas 284 175 607 419 tuner-plugin 0;
+#X obj 234 89 ext/abs(v)/tune;
+#X coords 0 419 1 418 140 220 0;
+#X restore 853 173 pd tuner-plugin;
+#X obj 853 201 ext/abs(v)/r-fromNetwork, f 26;
+#X obj 853 229 ext/abs(v)/s-toNetwork;
+#X obj 737 56 tgl 42 0 tglTuner d9 Tu 0 16 0 32 -262144 -1 -1 0 1;
+#X obj 611 48 cnv 15 120 50 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 672 51 tgl 42 0 PLAY d11 PLAY 6 24 0 21 -262144 -1 -1 0 1;
+#X obj 619 51 tgl 42 0 REC d10 REC 6 24 0 21 -262144 -1 -1 0 1;
+#X obj 611 104 ext/abs(v)/prenames;
+#X obj 853 259 ext/abs(v)/seteffcolorcnv;
+#X obj 611 4 cnv 15 120 40 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 614 18 nbx 6 22 0 1e+37 0 0 fadetime a25 crossfade 0 -8 0 18
+-262144 -1 -1 1000 256;
+#N canvas 416 171 494 396 META 0;
+#X text 12 5 KEYWORDS guitar stompbox;
+#X text 12 25 LICENSE GPL2;
+#X text 12 45 DESCRIPTION cpu-cheap yet complex effecs rack;
+#X text 11 66 AUTHOR Scott Vanya;
+#X text 11 86 HELP_PATCH_AUTHORS Scott Vanya;
+#X restore 854 287 pd META;
+#X connect 20 0 21 0;
+#X connect 21 0 22 0;
+#X connect 21 1 23 0;
+#X coords 150 0 0 860 830 380 2 0 0;

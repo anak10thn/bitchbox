@@ -1,0 +1,110 @@
+#N canvas 597 23 500 829 10;
+#X obj 134 416 delwrite~ \$0-delay 2000;
+#X obj 134 536 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-203904 -1 -1 0.17 256;
+#X text 145 603 Double tête de lecture à transposition, f 22;
+#X obj 134 633 delpitch~ \$0-delay 100, f 24;
+#X obj 134 351 nbx 5 14 -1e+37 1e+37 0 0 empty \$0-frequency-r empty
+0 -8 0 10 -203904 -1 -1 220 256;
+#X text 146 399 Tête d'enregistrement;
+#X obj 134 463 nbx 5 14 -1e+37 1e+37 0 0 empty \$0-halftone-r empty
+0 -8 0 10 -203904 -1 -1 0 256;
+#X obj 134 370 osc~ 220;
+#X msg 134 557 \$1 20;
+#X obj 134 582 line~;
+#N canvas 436 46 450 300 header 0;
+#X obj 101 103 cnv 15 30 15 empty empty delpitch~ 2 8 0 14 -262144
+-66577 0;
+#X coords 0 -1 1 1 466 20 2 100 100;
+#X restore 12 9 pd header;
+#X text 15 195 Le premier argument de l'abstraction est le nom de la
+ligne à retard pour se rattacher à la tête d'enregistrement correspondant.
+, f 76;
+#X text 15 225 Le deuxième argument est la période en milliseconde
+sur laquelle le retard varie \, elle doit être inférieure ou égale
+au temps de retard maximum. Une période trop petite peut créer un
+effet de modulation d’amplitude et une période trop grande peut
+laisser entendre des événements déjà passés. Une période de 100
+ms s’avère appropriée mais en fonction des sons \, il peut être
+nécessaire d’augmenter ou de diminuer la période., f 76;
+#X text 190 523 Facteur de transposition en échantillons définissant
+l'incrément ou le décrément du temps de retard., f 47;
+#X obj 173 701 dbtorms;
+#X obj 173 746 line~;
+#X obj 134 768 *~, f 7;
+#X obj 173 723 pack 0 50;
+#X text 22 391 Signal original ->;
+#X text 17 668 Signal transposé ->;
+#X text 191 455 Transposition en demi-tons, f 14;
+#X text 267 488 Convertit les demi-tons en facteur de transposition
+, f 27;
+#X obj 173 680 nbx 5 14 0 100 0 0 empty empty empty 0 -8 0 10 -203904
+-1 -1 100 256;
+#X text 172 663 Gain en dB;
+#X obj 134 790 dac~;
+#N canvas 0 22 450 300 init 0;
+#X obj 30 77 s \$0-halftone-r;
+#X obj 30 33 loadbang;
+#X msg 30 55 0;
+#X obj 30 103 loadbang;
+#X obj 30 147 s \$0-frequency-r;
+#X msg 30 125 220;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X connect 3 0 5 0;
+#X connect 5 0 4 0;
+#X restore 350 752 pd init;
+#X text 15 315 Comme pour les objets delread~ et vd~ \, il est possible
+d'utiliser plusieurs abstractions delpitch~ pour une même tête d'enregistrement.
+, f 76;
+#N canvas 0 22 450 300 halftone 0;
+#X obj 59 155 pow, f 5;
+#X obj 59 57 t b f, f 13;
+#X obj 59 105 f 2;
+#X obj 59 81 t b b;
+#X obj 86 105 f 1;
+#X obj 86 130 / 12;
+#X obj 59 181 pow, f 13;
+#X obj 59 33 inlet half-tone;
+#X obj 59 206 outlet factor;
+#X text 163 112 factor = pow(pow(2 \, 1/12) \, halftone);
+#X connect 0 0 6 0;
+#X connect 1 0 3 0;
+#X connect 1 1 6 1;
+#X connect 2 0 0 0;
+#X connect 3 0 2 0;
+#X connect 3 1 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 0 1;
+#X connect 6 0 8 0;
+#X connect 7 0 1 0;
+#X restore 134 493 pd halftone to factor;
+#X text 15 35 L'abstraction delpicth~ remplace la tête de lecture
+dans une ligne à retard et permet de transposer le signal original.
+L'abstraction possède une entrée signal pour le facteur de transposition
+qui définit l'incrément ou le décrément du temps de retard en échantillon.
+Ainsi un signal d'entrée valant 1 préserve le son à la hauteur original
+\, en diminuant la valeur du signal en dessous de 1 alors le son est
+transposé dans les graves et en augmentant la valeur du signal au
+dessus de 1 alors le son est transposé dans les aigus. Par exemple
+\, un signal d'entrée valant 2 transpose le signal orignal une octave
+au dessus et un signal d'entrée valant 0.5 transpose le signal orignal
+une octave en dessous. Il est possible de retrouver le facteur de transposition
+à partir de demi-tons suivant la formule définie dans l'abstraction
+"halftone to factor"., f 76;
+#X msg 350 627 \; pd dsp 1;
+#X msg 350 667 \; pd dsp 0;
+#X connect 1 0 8 0;
+#X connect 3 0 16 0;
+#X connect 4 0 7 0;
+#X connect 6 0 27 0;
+#X connect 7 0 0 0;
+#X connect 8 0 9 0;
+#X connect 9 0 3 0;
+#X connect 14 0 17 0;
+#X connect 15 0 16 1;
+#X connect 16 0 24 0;
+#X connect 16 0 24 1;
+#X connect 17 0 15 0;
+#X connect 22 0 14 0;
+#X connect 27 0 1 0;

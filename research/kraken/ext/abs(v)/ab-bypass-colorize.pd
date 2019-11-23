@@ -1,0 +1,40 @@
+#N canvas 0 54 1440 818 10;
+#X obj 47 111 sel 0 1;
+#X msg 63 167 color 3 22 22;
+#X obj 46 197 s SLOT1EFFNAME;
+#X obj 52 89 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X msg 47 137 color 13 22 22;
+#X obj 171 111 sel 0 1;
+#X obj 171 87 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 187 167 color 5 22 22;
+#X msg 171 137 color 15 22 22;
+#X obj 168 197 s SLOT2EFFNAME;
+#X obj 299 111 sel 0 1;
+#X obj 299 87 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 299 193 s SLOT3EFFNAME;
+#X msg 299 137 color 8 22 22;
+#X msg 299 163 color 28 22 22;
+#X obj 47 61 r SLOT1BYCLR;
+#X obj 171 61 r SLOT2BYCLR;
+#X obj 299 61 r SLOT3BYCLR;
+#X connect 0 0 4 0;
+#X connect 0 1 1 0;
+#X connect 1 0 2 0;
+#X connect 3 0 0 0;
+#X connect 4 0 2 0;
+#X connect 5 0 8 0;
+#X connect 5 1 7 0;
+#X connect 6 0 5 0;
+#X connect 7 0 9 0;
+#X connect 8 0 9 0;
+#X connect 10 0 14 0;
+#X connect 10 1 13 0;
+#X connect 11 0 10 0;
+#X connect 13 0 12 0;
+#X connect 14 0 12 0;
+#X connect 15 0 3 0;
+#X connect 16 0 6 0;
+#X connect 17 0 11 0;

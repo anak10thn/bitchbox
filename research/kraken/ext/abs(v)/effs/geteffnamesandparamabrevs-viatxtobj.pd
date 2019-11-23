@@ -1,0 +1,57 @@
+#N canvas 3 55 1351 686 10;
+#X floatatom 41 60 5 0 0 0 - - -, f 5;
+#X obj 41 36 inlet;
+#X obj 97 272 outlet;
+#X obj 163 272 outlet;
+#X obj 239 272 outlet;
+#X obj 304 272 outlet;
+#X obj 183 116 text define -k \$0-effpabrevs;
+#A set index name p1 p2 p3 \; 0 0-raw gan na- na- \; 1 chorus(s) frq
+del dpt \; 2 compressor(d) rat thr gan \; 3 delay(3-tap) tap1 tap2
+tap3 \; 4 delay(fb)(d) del fdb gan \; 5 delay(spectr) dsp fsp gsp \;
+6 distortion(d) dst ton lvl \; 7 filter(s) hip lop gan \; 8 flanger(s)
+frq del dpt \; 9 fuzz bst fuz gan \; 10 looper(fw-bw)(v) rec fwd bwd
+\; 11 octave_harmonizer(p) raw 1dn 2dn \; 12 overdrive dri ton gan
+\; 13 phaser spd fdb fdl \; 14 pitchshifter(d) trs win del \; 15 reverb(pure)(d)
+brg rsz mix \; 16 step-vibrato(g) dpt spd gan \; 17 tremolo(d) frq
+dpt gan \; 18 vcf(d) cut res gan \; 19 vibrato(d) spd dpt fdb \; 20
+wah-wah(g) max min Q--;
+#X msg 210 73 read -c text-obj-params-to-effs.txt;
+#X msg 184 46 clear;
+#X floatatom 43 112 5 0 5 0 - - -, f 5;
+#X floatatom 74 138 5 0 5 0 - - -, f 5;
+#X floatatom 108 161 5 0 5 0 - - -, f 5;
+#X obj 46 187 text get \$0-effpabrevs;
+#X obj 45 208 unpack f s s s s;
+#X symbolatom 230 234 10 0 0 0 - - -, f 10;
+#X floatatom 50 234 5 0 0 0 - - -, f 5;
+#X symbolatom 299 234 10 0 0 0 - - -, f 10;
+#X symbolatom 160 234 10 0 0 0 - - -, f 10;
+#X symbolatom 91 234 10 0 0 0 - - -, f 10;
+#X obj 43 84 + 1;
+#X obj 167 6 hradio 15 1 0 8 empty empty empty 0 -8 0 10 -262144 -1
+-1 1;
+#X obj 328 10 loadbang;
+#X obj 328 32 t b b;
+#X connect 0 0 19 0;
+#X connect 1 0 0 0;
+#X connect 7 0 6 0;
+#X connect 8 0 6 0;
+#X connect 9 0 12 0;
+#X connect 10 0 12 1;
+#X connect 11 0 12 2;
+#X connect 12 0 13 0;
+#X connect 13 0 15 0;
+#X connect 13 1 18 0;
+#X connect 13 2 17 0;
+#X connect 13 3 14 0;
+#X connect 13 4 16 0;
+#X connect 14 0 4 0;
+#X connect 16 0 5 0;
+#X connect 17 0 3 0;
+#X connect 18 0 2 0;
+#X connect 19 0 9 0;
+#X connect 20 0 0 0;
+#X connect 21 0 22 0;
+#X connect 22 0 7 0;
+#X connect 22 1 8 0;

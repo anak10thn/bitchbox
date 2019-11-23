@@ -1,0 +1,21 @@
+#N canvas 0 54 1366 686 10;
+#X obj 138 114 bng 38 250 50 0 empty d12 pause 17 7 0 10 -262144 -1
+-1;
+#X obj 185 114 bng 38 250 50 0 empty d13 play 17 7 0 10 -262144 -1
+-1;
+#X obj 43 114 bng 38 250 50 0 empty d10 rec 17 7 0 10 -262144 -1 -1
+;
+#X obj 93 114 bng 38 250 50 0 empty d11 stop 17 7 0 10 -262144 -1 -1
+;
+#X obj 138 168 bng 38 250 50 0 empty d16 fwd 17 7 0 10 -262144 -1 -1
+;
+#X obj 185 169 bng 38 250 50 0 empty d17 end 17 7 0 10 -262144 -1 -1
+;
+#X obj 43 168 bng 38 250 50 0 empty d14 beg 17 7 0 10 -262144 -1 -1
+;
+#X obj 93 168 bng 38 250 50 0 empty d15 rew 17 7 0 10 -262144 -1 -1
+;
+#X text 40 62 TABLED;
+#X text 34 32 these ctrls req implementing \; the advanced rec \, so
+table for now;
+#X obj 42 86 hid-kbd-footswtch(2bngtgls);

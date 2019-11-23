@@ -1,0 +1,2 @@
+#N canvas 3 55 449 299 10;
+#X obj 8 22 hid-kbd-footswtch(2bngtgls);

@@ -1,0 +1,106 @@
+#N canvas 3 56 1351 686 10;
+#X obj 101 102 cnv 15 184 110 empty empty booster+limiter 2 12 0 14
+-128992 -1 0;
+#X text 235 363 limiter;
+#X text 233 373 ========;
+#X obj 537 334 *~;
+#X obj 568 334 *~;
+#X floatatom 587 178 0 0 0 2 left - -;
+#X floatatom 620 177 0 0 0 2 right - -;
+#X floatatom 101 182 0 0 0 2 gain-out(dB) - -;
+#X obj 568 281 limiter~ 50 1;
+#N canvas 59 78 600 400 generator~ 0;
+#X obj 299 21 inlet;
+#X obj 365 19 inlet;
+#X obj 112 229 outlet~;
+#X obj 112 185 *~;
+#X obj 151 185 *~;
+#X obj 133 121 line~;
+#X obj 167 162 line~;
+#X obj 299 69 f;
+#X obj 365 63 f;
+#X obj 154 229 outlet~;
+#X obj 299 44 dbtorms;
+#X obj 365 43 dbtorms;
+#X msg 297 92 \$1 20;
+#X msg 366 89 \$1 20;
+#X obj 110 14 inlet~;
+#X obj 181 12 inlet~;
+#X connect 0 0 10 0;
+#X connect 1 0 11 0;
+#X connect 3 0 2 0;
+#X connect 4 0 9 0;
+#X connect 5 0 3 1;
+#X connect 6 0 4 1;
+#X connect 7 0 12 0;
+#X connect 8 0 13 0;
+#X connect 10 0 7 0;
+#X connect 11 0 8 0;
+#X connect 12 0 5 0;
+#X connect 13 0 6 0;
+#X connect 14 0 3 0;
+#X connect 15 0 4 0;
+#X restore 536 201 pd generator~;
+#X text 83 447 it is quite important to delay the original signals
+before the limiter-amplification is applied to prevent clicks !!!;
+#X text 621 107 (give some 190dB and notice no clipping);
+#X obj 585 313 z~ 64;
+#X obj 537 314 z~ 64;
+#X text 631 32 part of zexy;
+#X text 624 315 just a small delay of 64 samples;
+#X text 623 59 updated for zexy-2.0;
+#X text 82 480 this is because the limiter algorithm needs some time
+(e.g. the outgoing signal is delayed by some samples) \; directly multiplying
+would therefore be a bit too late \, in case a spike appears. Adding
+a small delay takes care of this psychoacoustically (you won't hear
+the click);
+#X text 82 389 limiter will output the amplification-factor that has
+to be applied on all inlet~s to get a beautiful limited multichannel-signal
+that preserves the balance between the channels;
+#X obj 537 375 hip~ 1;
+#X obj 597 375 hip~ 1;
+#X obj 538 425 outlet~;
+#X obj 597 423 outlet~;
+#X obj 534 78 inlet~;
+#X text 534 55 audio;
+#X obj 593 77 inlet~;
+#X text 542 470 MODE 0 : 1-treshold-limiter;
+#X text 977 111 set limit/holdtime/releasetime at once;
+#X text 472 491 this is simple : the output will not become bigger
+than the specified limit. When the input becomes small enough again
+so that this condition is matched even without (positive) amplification
+(this is \, when the input signal level falls below the limit) \, the
+amplification will increase gradually (depending on hold- & release-time)
+towards 1;
+#X text 474 579 all levels (limts/tresholds) should be given in dB
+to produce satisfying results (following pd's agreement on the deziBel-scale
+\, 100dB are equal to 1 \, 0dB equals 0 \, ...);
+#X obj 885 54 loadbang;
+#X msg 885 109 set 98 40 150;
+#X text 101 124 limit is preset at \; loadbang to 98;
+#X obj 1053 74 inlet;
+#X msg 102 59 120;
+#X connect 3 0 19 0;
+#X connect 4 0 20 0;
+#X connect 5 0 9 2;
+#X connect 6 0 9 3;
+#X connect 7 0 5 0;
+#X connect 7 0 6 0;
+#X connect 8 0 4 0;
+#X connect 8 0 3 1;
+#X connect 9 0 8 0;
+#X connect 9 0 13 0;
+#X connect 9 1 8 1;
+#X connect 9 1 12 0;
+#X connect 12 0 4 1;
+#X connect 13 0 3 0;
+#X connect 19 0 21 0;
+#X connect 20 0 22 0;
+#X connect 23 0 9 0;
+#X connect 25 0 9 1;
+#X connect 30 0 31 0;
+#X connect 30 0 34 0;
+#X connect 31 0 8 0;
+#X connect 33 0 7 0;
+#X connect 34 0 7 0;
+#X coords 0 -1 1 1 186 114 2 100 100;

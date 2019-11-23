@@ -1,0 +1,186 @@
+#N canvas 12 54 1425 818 10;
+#X obj -125 -80 fiddle~ 4096;
+#X obj -79 -39 unpack;
+#X symbolatom 420 307 12 0 0 0 - - -, f 12;
+#X obj 102 470 cnv 15 126 18 empty tuner-canvas [D] 45.0941 4 9 0 12
+-1 -262144 0;
+#X obj 105 332 hsl 121 20 39.5 40.5 0 0 empty empty E-40 4 10 0 10
+-1 -4032 -191407 0 1;
+#X obj 105 355 hsl 121 20 44.5 45.5 0 0 empty empty A-45 4 10 0 10
+-1 -4032 -191407 7059 1;
+#X obj 105 378 hsl 121 20 49.5 50.5 0 0 empty empty D-50 4 10 0 10
+-1 -4032 -191407 0 1;
+#X obj 105 401 hsl 121 20 54.5 55.5 0 0 empty empty G-55 4 10 0 10
+-1 -4032 -191407 0 1;
+#X obj 105 424 hsl 121 20 58.5 59.5 0 0 empty empty B-59 4 10 0 10
+-1 -4032 -191407 0 1;
+#X obj 105 447 hsl 121 20 63.5 64.5 0 0 empty empty E-64 4 10 0 10
+-1 -4032 -191407 0 1;
+#X obj 420 383 l2s;
+#X msg 420 408 \; tuner-canvas label \$1;
+#X obj 420 357 pack s f;
+#X msg 170 200 set [D];
+#X msg 170 286 set [E];
+#X msg 170 229 set [G];
+#X msg 170 258 set [B];
+#X obj 43 -142 loadbang;
+#X text 44 58 between lets numbers thru within a range;
+#X text 44 88 inlet 3 high range - or second creation arg;
+#X text 44 68 inlet 1 = input;
+#X text 44 78 inlet 2 low range - or 1st creation arg;
+#X text 44 98 inlet 4 1 = 0 when out of range - or 3rd creation arg
+;
+#X msg 169 142 set [E];
+#X obj 420 99 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 170 171 set [A];
+#X obj 254 156 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+40.0416;
+#X obj 292 184 spigot;
+#X obj 254 185 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 45.0883
+45.0327;
+#X obj 292 213 spigot;
+#X obj 253 213 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+50.0451;
+#X obj 291 241 spigot;
+#X obj 254 242 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+54.8397;
+#X obj 291 270 spigot;
+#X obj 252 267 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+59.9355;
+#X obj 290 295 spigot;
+#X obj 253 296 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+63.6517;
+#X obj 290 324 spigot;
+#X floatatom 465 93 5 0 0 0 - - -, f 5;
+#X msg 459 12 set [-];
+#X text 376 -136 a simple guitar tuner by Dave Adams (Balwyn) 2014
+;
+#X obj -127 -132 inlet~;
+#X obj 162 332 cnv 1 1 135 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X obj 167 332 cnv 1 1 135 empty empty empty 20 12 0 14 -258113 -66577
+0;
+#X obj -126 -106 *~ \$1;
+#X obj 212 472 tgl 14 0 \$0-no-out \$0-no-in empty 17 7 0 10 -99865
+-257985 -1 1 1;
+#X obj 574 480 outlet;
+#X obj 661 481 outlet;
+#X obj 662 -100 inlet;
+#X obj 50 125 between 39 41 1;
+#X obj 50 154 between 44 46 1;
+#X obj 51 183 between 49 51 1;
+#X obj 50 212 between 54 56 1;
+#X obj 52 241 between 58 60 1;
+#X obj 53 269 between 63 65 1;
+#X obj 760 473 outlet;
+#X floatatom 760 438 5 0 0 0 - - -, f 5;
+#X obj 628 185 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+40.0416;
+#X obj 666 213 spigot;
+#X obj 628 214 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 45.0883
+45.0327;
+#X obj 666 242 spigot;
+#X obj 627 242 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+50.0451;
+#X obj 665 270 spigot;
+#X obj 628 271 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+54.8397;
+#X obj 665 299 spigot;
+#X obj 626 296 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+59.9355;
+#X obj 664 324 spigot;
+#X obj 627 325 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+63.6517;
+#X obj 664 353 spigot;
+#X msg 804 25 \; tuner-canvas color 22 12 0 \;;
+#X msg 43 -73 \; tuner-canvas vis_size 126 18 \; tuner-canvas color
+22 17 0 \; tuner-canvas label_font 0 12 \; tuner-canvas label_pos 4
+9 \;;
+#X msg 655 446 symbol \$1;
+#X connect 0 2 1 0;
+#X connect 1 0 24 0;
+#X connect 1 0 38 0;
+#X connect 1 0 49 0;
+#X connect 1 0 50 0;
+#X connect 1 0 51 0;
+#X connect 1 0 52 0;
+#X connect 1 0 53 0;
+#X connect 1 0 54 0;
+#X connect 2 0 12 0;
+#X connect 2 0 71 0;
+#X connect 10 0 11 0;
+#X connect 12 0 10 0;
+#X connect 13 0 31 0;
+#X connect 14 0 37 0;
+#X connect 15 0 33 0;
+#X connect 16 0 35 0;
+#X connect 17 0 70 0;
+#X connect 17 0 39 0;
+#X connect 23 0 27 0;
+#X connect 24 0 2 0;
+#X connect 25 0 29 0;
+#X connect 26 0 27 1;
+#X connect 26 0 57 0;
+#X connect 27 0 2 0;
+#X connect 28 0 29 1;
+#X connect 28 0 59 0;
+#X connect 29 0 2 0;
+#X connect 30 0 31 1;
+#X connect 30 0 61 0;
+#X connect 31 0 2 0;
+#X connect 32 0 33 1;
+#X connect 32 0 63 0;
+#X connect 33 0 2 0;
+#X connect 34 0 35 1;
+#X connect 34 0 65 0;
+#X connect 35 0 2 0;
+#X connect 36 0 37 1;
+#X connect 36 0 67 0;
+#X connect 37 0 2 0;
+#X connect 38 0 12 1;
+#X connect 38 0 46 0;
+#X connect 39 0 2 0;
+#X connect 41 0 44 0;
+#X connect 44 0 0 0;
+#X connect 45 0 44 1;
+#X connect 48 0 45 0;
+#X connect 49 0 23 0;
+#X connect 49 0 26 0;
+#X connect 49 0 4 0;
+#X connect 49 1 58 0;
+#X connect 50 0 5 0;
+#X connect 50 0 25 0;
+#X connect 50 0 28 0;
+#X connect 50 1 60 0;
+#X connect 51 0 6 0;
+#X connect 51 0 13 0;
+#X connect 51 0 30 0;
+#X connect 51 1 62 0;
+#X connect 52 0 7 0;
+#X connect 52 0 15 0;
+#X connect 52 0 32 0;
+#X connect 52 1 64 0;
+#X connect 53 0 8 0;
+#X connect 53 0 16 0;
+#X connect 53 0 34 0;
+#X connect 53 1 66 0;
+#X connect 54 0 9 0;
+#X connect 54 0 14 0;
+#X connect 54 0 36 0;
+#X connect 54 1 68 0;
+#X connect 56 0 55 0;
+#X connect 57 0 58 1;
+#X connect 58 0 56 0;
+#X connect 59 0 60 1;
+#X connect 60 0 56 0;
+#X connect 61 0 62 1;
+#X connect 62 0 56 0;
+#X connect 63 0 64 1;
+#X connect 64 0 56 0;
+#X connect 65 0 66 1;
+#X connect 66 0 56 0;
+#X connect 67 0 68 1;
+#X connect 68 0 56 0;
+#X connect 71 0 47 0;
+#X coords 0 -1 1 1 130 160 1 100 330;

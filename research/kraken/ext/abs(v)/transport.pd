@@ -1,0 +1,41 @@
+#N canvas 12 54 1425 818 10;
+#X text 230 170 pop-up;
+#X text 232 229 close;
+#X obj 110 166 tgl 42 0 empty empty off|on 0 7 0 12 -262144 -1 -1 0
+1;
+#X obj 218 140 sel 0 1;
+#X obj 218 77 r tglTransport;
+#X msg 240 187 \; pd-transport-plugin vis 1;
+#X obj 85 15 tgl 68 0 PLAY d13 PLAY 6 24 0 21 -262144 -1 -1 0 1;
+#X obj 7 15 tgl 68 0 REC d10 REC 6 24 0 21 -262144 -1 -1 0 1;
+#X obj 535 109 bng 38 250 50 0 empty d12 pause 17 7 0 10 -262144 -1
+-1;
+#X obj 576 109 bng 38 250 50 0 empty d13 play 17 7 0 10 -262144 -1
+-1;
+#X obj 448 109 bng 38 250 50 0 empty d10 rec 17 7 0 10 -262144 -1 -1
+;
+#X obj 494 109 bng 38 250 50 0 empty d11 stop 17 7 0 10 -262144 -1
+-1;
+#X obj 535 153 bng 38 250 50 0 empty d16 fwd 17 7 0 10 -262144 -1 -1
+;
+#X obj 576 153 bng 38 250 50 0 empty d17 end 17 7 0 10 -262144 -1 -1
+;
+#X obj 448 153 bng 38 250 50 0 empty d14 beg 17 7 0 10 -262144 -1 -1
+;
+#X obj 494 153 bng 38 250 50 0 empty d15 rew 17 7 0 10 -262144 -1 -1
+;
+#X text 445 81 these ctrls req implementing the advanced rec \, so
+table for now;
+#X text 440 44 TABLED;
+#X obj 9 93 vu 42 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X obj 29 311 spigot;
+#X obj 43 253 r meterSdB;
+#X msg 218 258 \; pd-transport-plugin vis 0;
+#X connect 2 0 3 0;
+#X connect 2 0 19 1;
+#X connect 3 0 21 0;
+#X connect 3 1 5 0;
+#X connect 4 0 2 0;
+#X connect 19 0 18 0;
+#X connect 20 0 19 0;
+#X coords 0 -1 1 1 160 220 2 0 0;
