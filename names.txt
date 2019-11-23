@@ -14,3 +14,4 @@ Subtractive OD
 Tube Screamer
 Digital Delay
 Tape Echo
+Spec Delay
