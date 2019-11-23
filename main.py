@@ -32,7 +32,7 @@ ser.write("?fBuilt By ?nBen Jacobs")
 sleep(2)
 ser.write("?fOpening PD...")
 sleep(2)
-subprocess.call("pd -nogui server.pd &", shell=True)
+subprocess.call("pd -nogui src/server.pd &", shell=True)
 ser.write("?f" + str(names[preset]) + "?n" + str(functions[preset]))
 while True:
  sleep(.01)
