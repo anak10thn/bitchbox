@@ -61,17 +61,18 @@ www.putedata.info
 We now have to change some file paths:
 After installing puredata, double click the 'server.pd' file in the bitchbox folder. This should open puredata. 
 You should see a box (it's actually called an object) that says:
-
-;
+```bash
 pd open $1.pd /home/pi/Desktop/bitchbox
-
+```
 Press CTRL+E on your keyboard to go into edit mode. Now, click this object and change /home/pi/Desktop to be the path to wherever your bitchbox folder is. 
 For example, if you cloned it to your home folder, you should change the path to /home/(your username here)/bitchbox
 Just make sure it is the COMPLETE path to the folder. You will also need to change these lines:
 
+```python
 name_file = open ("/pi/Desktop/bitchbox/names.txt")
 
 function_file = open ("/pi/Desktop/bitchbox/functions.txt")
+```
 
 In main.py to the FULL path to both names.txt and functions.txt respectivly.
 
@@ -110,13 +111,13 @@ You will notice that inside the 'bitchbox' folder, there are two files called 'f
 Another example is this: If you leave all the effects that I made alone, you would name your file 16.pd
 
 To controll your effect with the four pots, add this object to your effect:
-
+```
 netreceive  5001 1
-
+```
 connect it's first output to this object:
-
+```
 route 0 1 2 3
-
+```
 this route object's first four outputs will output the values of the four pots.
 Connect them to a slider or number box object's input, and you can controll any four software effect parameters with physical hardware potentiometers.
 you can multiply these values by a number to get a larger (or smaller) range, in exchange for some accuracy by connecting an output of 'route 0 1 2 3' to this object:
