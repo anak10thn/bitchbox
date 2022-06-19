@@ -28,8 +28,6 @@ def readadc(adcnum):
     return adcout
 ser.write("?fRaspberry Pi?nEffects Module")
 sleep(1)
-ser.write("?fBuilt By ?nBen Jacobs")
-sleep(2)
 ser.write("?fOpening PD...")
 sleep(2)
 subprocess.call("pd -nogui src/server.pd &", shell=True)
