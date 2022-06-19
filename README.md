@@ -54,7 +54,7 @@ to find a guide that walks you through setting up the spi bus on your raspberry 
 project uses the SPI protocol to communicate with the pi. This is why you need it set up.
 
 Once you follow that guide, you need to install pure data extended:
-www.putedata.info
+www.puredata.info
 
 ***IMPORTANT NOTE***
 
